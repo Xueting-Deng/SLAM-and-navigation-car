@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/dwd/Arduino/libraries/PidController",
+                "/home/dwd/Arduino/libraries/micro_ros_arduino-foxy/src"
+            ],
+            "defines": [],
+            "compilerPath": "/bin/clang-10",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-x64"
+        }
+    ],
+    "version": 4
+}

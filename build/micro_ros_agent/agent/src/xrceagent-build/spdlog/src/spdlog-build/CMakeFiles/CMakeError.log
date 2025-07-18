@@ -1,0 +1,62 @@
+Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/dwd/Documents/project/esp_ws/build/micro_ros_agent/agent/src/xrceagent-build/spdlog/src/spdlog-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/bin/make cmTC_ced35/fast && make[6]: Entering directory '/home/dwd/Documents/project/esp_ws/build/micro_ros_agent/agent/src/xrceagent-build/spdlog/src/spdlog-build/CMakeFiles/CMakeTmp'
+/bin/make -f CMakeFiles/cmTC_ced35.dir/build.make CMakeFiles/cmTC_ced35.dir/build
+make[7]: Entering directory '/home/dwd/Documents/project/esp_ws/build/micro_ros_agent/agent/src/xrceagent-build/spdlog/src/spdlog-build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ced35.dir/src.cxx.o
+/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -std=c++11 -o CMakeFiles/cmTC_ced35.dir/src.cxx.o -c /home/dwd/Documents/project/esp_ws/build/micro_ros_agent/agent/src/xrceagent-build/spdlog/src/spdlog-build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_ced35
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ced35.dir/link.txt --verbose=1
+/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_ced35.dir/src.cxx.o  -o cmTC_ced35 
+/bin/ld: CMakeFiles/cmTC_ced35.dir/src.cxx.o: in function `main':
+src.cxx:(.text+0x46): undefined reference to `pthread_create'
+/bin/ld: src.cxx:(.text+0x52): undefined reference to `pthread_detach'
+/bin/ld: src.cxx:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[7]: *** [CMakeFiles/cmTC_ced35.dir/build.make:87: cmTC_ced35] Error 1
+make[7]: Leaving directory '/home/dwd/Documents/project/esp_ws/build/micro_ros_agent/agent/src/xrceagent-build/spdlog/src/spdlog-build/CMakeFiles/CMakeTmp'
+make[6]: *** [Makefile:121: cmTC_ced35/fast] Error 2
+make[6]: Leaving directory '/home/dwd/Documents/project/esp_ws/build/micro_ros_agent/agent/src/xrceagent-build/spdlog/src/spdlog-build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/dwd/Documents/project/esp_ws/build/micro_ros_agent/agent/src/xrceagent-build/spdlog/src/spdlog-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/bin/make cmTC_ad6d2/fast && make[6]: Entering directory '/home/dwd/Documents/project/esp_ws/build/micro_ros_agent/agent/src/xrceagent-build/spdlog/src/spdlog-build/CMakeFiles/CMakeTmp'
+/bin/make -f CMakeFiles/cmTC_ad6d2.dir/build.make CMakeFiles/cmTC_ad6d2.dir/build
+make[7]: Entering directory '/home/dwd/Documents/project/esp_ws/build/micro_ros_agent/agent/src/xrceagent-build/spdlog/src/spdlog-build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ad6d2.dir/CheckFunctionExists.cxx.o
+/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -std=c++11 -o CMakeFiles/cmTC_ad6d2.dir/CheckFunctionExists.cxx.o -c /home/dwd/Documents/project/esp_ws/build/micro_ros_agent/agent/src/xrceagent-build/spdlog/src/spdlog-build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_ad6d2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad6d2.dir/link.txt --verbose=1
+/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_ad6d2.dir/CheckFunctionExists.cxx.o  -o cmTC_ad6d2  -lpthreads 
+/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[7]: *** [CMakeFiles/cmTC_ad6d2.dir/build.make:87: cmTC_ad6d2] Error 1
+make[7]: Leaving directory '/home/dwd/Documents/project/esp_ws/build/micro_ros_agent/agent/src/xrceagent-build/spdlog/src/spdlog-build/CMakeFiles/CMakeTmp'
+make[6]: *** [Makefile:121: cmTC_ad6d2/fast] Error 2
+make[6]: Leaving directory '/home/dwd/Documents/project/esp_ws/build/micro_ros_agent/agent/src/xrceagent-build/spdlog/src/spdlog-build/CMakeFiles/CMakeTmp'
+
+
+
