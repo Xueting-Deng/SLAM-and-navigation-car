@@ -1,0 +1,3 @@
+source;share/car_description/hook/pythonpath.ps1
+source;share/car_description/hook/pythonpath.dsv
+source;share/car_description/hook/pythonpath.sh
